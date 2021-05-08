@@ -1,5 +1,11 @@
 # vhdbot - Valheim discord bot
 
+## NB
+
+DOES NOT HAVE AUTHORIZATION!!!<br>
+Every user on the channel where the bot listens will be able to issue commands to it<br>
+Recommend you either run it on a server with friends or in a private/restricted channel<br>
+
 ## Overview
 This is a quickly put together Discord bot to control your
 dedicated Valheim server without the need to ssh into the linux machine
@@ -15,8 +21,8 @@ It is meant to be used with linux-only (well at least at this point :))
 
 ## Functionality
 
-Right now it's meant to run on the same server where the dedicated Valheim server is
-And in fact, since I was lazy, I hardcoded the path to the server start/stop script too :)
+Right now it's meant to run on the same server where the dedicated Valheim server is<br>
+And in fact, since I was lazy, I hardcoded the path to the server start/stop script too :)<br>
 
 Once you build the bot, the following flags can be passed to the binary
 * -t - bot token (mandatory)
@@ -27,16 +33,11 @@ all other flags are optional
 * -ac allows you to specify the channel ID for sending single messages to (only works with -m)
 * -m flag contains data for ad-hoc messages to the channel from -ac (only works with -ac)
 
-I.e.
-vhdbot -t "ODa0MkU0MjM5NTk2Nzg5NzWY.YH_q8A.qClWB0h4IGovsB0J1HcuCIhWPKc" -ac 123426540469387274 -m "Server went down!!!"
+I.e.<br>
+vhdbot -t "ODa0MkU0MjM5NTk2Nzg5NzWY.YH_q8A.qClWB0h4IGovsB0J1HcuCIhWPKc" -ac 123426540469387274 -m "Server went down!!!"<br>
 
-In the channel where your bot listens, you can do a few basic commands (default character is !)
-!start - start your Valheim dedicated server
-!stop - stop it
-rest is not yet implemented since I'm lazy :)
+In the channel where your bot listens, you can do a few basic commands (default character is !)<br>
+!start - start your Valheim dedicated server<br>
+!stop - stop it<br>
+rest is not yet implemented since I'm lazy :)<br>
 
-## NB
-
-DOES NOT HAVE AUTHORIZATION!!!
-Every user on the channel where the bot listens will be able to issue the commands to it
-Recommend you either run it on a server with friends or in a private/restricted channel
