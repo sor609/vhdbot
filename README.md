@@ -15,6 +15,9 @@ It is meant to be used with linux-only (well at least at this point :))
 
 ## Functionality
 
+Right now it's meant to run on the same server where the dedicated Valheim server is
+And in fact, since I was lazy, I hardcoded the path to the server start/stop script too :)
+
 Once you build the bot, the following flags can be passed to the binary
 * -t - bot token (mandatory)
 
