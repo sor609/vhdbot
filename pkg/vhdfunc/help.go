@@ -2,7 +2,7 @@ package vhdfunc
 
 // Self-explanatory, print help if user asks bot
 // for command list
-func printHelp() string {
+func PrintHelp() string {
 	help := "```ini\n"
 	help += "[Bot Commands]\n"
 	help += `
