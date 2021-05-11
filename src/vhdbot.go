@@ -10,6 +10,7 @@ import (
 	"syscall"
 
 	"github.com/bwmarrin/discordgo"
+	"github.com/sor609/vhdbot/pkg/vhdfunc"
 )
 
 var (
@@ -94,7 +95,7 @@ func listenAndReply(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 	// help function
 	if m.Content == cmdChar+"help" {
-		helpMsg := vhdfunc.printHelp()
+		helpMsg := vhdfunc.PrintHelp()
 		s.ChannelMessageSend(m.ChannelID, helpMsg)
 	}
 
@@ -106,7 +107,7 @@ func listenAndReply(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	if m.Content == cmdChar+"start" || m.Content == cmdChar+"stop" || m.Content == cmdChar+"status" || m.Content == cmdChar+"rebot" {
-		vhdfunc.ctrlGame(strings.TrimPrefix(m.Content, cmdChar), s, m)
+		vhdfunc.CtrlGame(strings.TrimPrefix(m.Content, cmdChar), s, m)
 	}
 	// load up functions here
 
