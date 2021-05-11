@@ -10,7 +10,6 @@ import (
 	"syscall"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/sor609/vhdbot/pkg/vhdfunc"
 )
 
 var (
