@@ -12,7 +12,7 @@ var (
 	BotChans bool
 )
 
-func init() {
+func Init() {
 
 	flag.StringVar(&BotToken, "t", "", "Bot Token")
 	flag.StringVar(&cmdChar, "c", "!", "Bot Command Character")
