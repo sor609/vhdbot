@@ -3,16 +3,21 @@ package vhdfunc
 import (
 	"flag"
 	"fmt"
+	"io/ioutil"
 	"os"
+
+	"github.com/valyala/fastjson"
 )
 
 var (
-	BotToken string
-	CmdChar  string
-	AdminMsg string
-	AdminChn string
-	JFile    string
-	BotChans bool
+	JFile       string
+	BotToken    string
+	CmdChar     string
+	AdminMsg    string
+	AdminChn    string
+	GameScript  string
+	GameChannel string
+	BotChans    bool
 )
 
 func VhdInit() {
@@ -32,4 +37,32 @@ func VhdInit() {
 		os.Exit(1)
 	}
 
+	readJconfig()
+}
+
+func readJconfig() {
+	if JFile != "" {
+		j, err := os.Open(JFile)
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		defer j.Close()
+
+		data, _ := ioutil.ReadAll(j)
+
+		var p fastjson.Parser
+		cfg, err := p.ParseBytes(data)
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		// command line token will override JSON
+		if BotToken == "" {
+			BotToken = string(cfg.GetStringBytes("config", "BotToken"))
+		}
+
+		GameScript = string(cfg.GetStringBytes("config", "GameScript"))
+		GameChannel = string(cfg.GetStringBytes("config", "GameChannel"))
+	}
 }
