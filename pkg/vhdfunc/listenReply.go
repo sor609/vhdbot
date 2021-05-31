@@ -22,16 +22,17 @@ func ListenAndReply(s *discordgo.Session, m *discordgo.MessageCreate) {
 		s.ChannelMessageSend(m.ChannelID, helpMsg)
 	}
 
-	// load up intents here
-	msg, _ := regexp.MatchString("(?i)hey "+s.State.User.Username, m.Content)
+	// loop over intents here
+	for k, v := range VhdInts {
+		msg, _ := regexp.MatchString(k, m.Content)
 
-	if msg {
-		s.ChannelMessageSend(m.ChannelID, "What's up "+m.Author.Username+"?")
+		if msg {
+			s.ChannelMessageSend(m.ChannelID, v)
+		}
 	}
 
+	// game controls
 	if m.Content == CmdChar+"start" || m.Content == CmdChar+"stop" || m.Content == CmdChar+"status" || m.Content == CmdChar+"rebot" {
 		CtrlGame(strings.TrimPrefix(m.Content, CmdChar), s, m)
 	}
-	// load up functions here
-
 }
