@@ -35,7 +35,7 @@ all other flags are optional
 * -m flag contains data for ad-hoc messages to the channel from -ac (only works with -ac)
 
 I.e.<br>
-vhdbot -t "ODa0MkU0MjM5NTk2Nzg5NzWY.YH_q8A.qClWB0h4IGovsB0J1HcuCIhWPKc" -ac 123426540469387274 -m "Server went down!!!"<br>
+vhdbot -t "532cba60Mjs5NTk2Nzu5NzYw.1T_b3K.vL83Bah4IGbvwR0D1HcuCIhWPK" -ac 123426540469387274 -m "Server went down!!!"<br>
 
 In the channel where your bot listens, you can do a few basic commands (default character is !)<br>
 !start - start your Valheim dedicated server<br>
