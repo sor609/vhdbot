@@ -17,8 +17,8 @@ func ListenAndReply(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	// help function
-	if m.Content == vhdfunc.CmdChar+"help" {
-		helpMsg := vhdfunc.PrintHelp()
+	if m.Content == CmdChar+"help" {
+		helpMsg := PrintHelp()
 		s.ChannelMessageSend(m.ChannelID, helpMsg)
 	}
 
@@ -29,8 +29,8 @@ func ListenAndReply(s *discordgo.Session, m *discordgo.MessageCreate) {
 		s.ChannelMessageSend(m.ChannelID, "What's up "+m.Author.Username+"?")
 	}
 
-	if m.Content == vhdfunc.CmdChar+"start" || m.Content == vhdfunc.CmdChar+"stop" || m.Content == vhdfunc.CmdChar+"status" || m.Content == vhdfunc.CmdChar+"rebot" {
-		vhdfunc.CtrlGame(strings.TrimPrefix(m.Content, vhdfunc.CmdChar), s, m)
+	if m.Content == CmdChar+"start" || m.Content == CmdChar+"stop" || m.Content == CmdChar+"status" || m.Content == CmdChar+"rebot" {
+		CtrlGame(strings.TrimPrefix(m.Content, CmdChar), s, m)
 	}
 	// load up functions here
 
