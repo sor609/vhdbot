@@ -10,6 +10,11 @@ import (
 	"github.com/sor609/vhdbot/pkg/vhdfunc"
 )
 
+// do a quick init
+func init() {
+	vhdfunc.VhdInit()
+}
+
 // this sets up bot and runs it
 func startSession() {
 
@@ -63,6 +68,5 @@ func startSession() {
 }
 
 func main() {
-	vhdfunc.VhdInit()
 	startSession()
 }

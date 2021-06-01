@@ -1,7 +1,6 @@
 package vhdfunc
 
 import (
-	"regexp"
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
@@ -20,15 +19,6 @@ func ListenAndReply(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if m.Content == CmdChar+"help" {
 		helpMsg := PrintHelp()
 		s.ChannelMessageSend(m.ChannelID, helpMsg)
-	}
-
-	// loop over intents here
-	for k, v := range VhdInts {
-		msg, _ := regexp.MatchString(k, m.Content)
-
-		if msg {
-			s.ChannelMessageSend(m.ChannelID, v)
-		}
 	}
 
 	// game controls

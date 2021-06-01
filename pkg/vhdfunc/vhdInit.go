@@ -18,7 +18,6 @@ var (
 	GameScript  string
 	GameChannel string
 	BotChans    bool
-	VhdInts     = make(map[string]string)
 )
 
 func VhdInit() {
@@ -38,10 +37,6 @@ func VhdInit() {
 		os.Exit(1)
 	}
 
-	readJconfig()
-}
-
-func readJconfig() {
 	if JFile != "" {
 		j, err := os.Open(JFile)
 		if err != nil {
@@ -65,11 +60,5 @@ func readJconfig() {
 
 		GameScript = string(cfg.GetStringBytes("config", "GameScript"))
 		GameChannel = string(cfg.GetStringBytes("config", "GameChannel"))
-
-		// add all intents into a map so it's easier to parse
-
-		cfg.GetObject("response").Visit(func(key []byte, val *fastjson.Value) {
-			VhdInts[string(key)] = fmt.Sprintf("%s", val)
-		})
 	}
 }
